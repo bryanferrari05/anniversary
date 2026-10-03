@@ -45,10 +45,10 @@ Adesso apri tutto. Sì, anche le stelle.`,
       note: "qui si stava bene",
     },
     {
-      src: "photos/image(5).jpg",
-      preview: "photos/previews/photo-2.webp",
-      caption: "Sì, ancora il minigolf.",
-      note: "il bis",
+      src: "photos/image_nuova.jpg",
+      preview: "photos/previews/photo-6.webp",
+      caption: "Una stella marina e due facce da vacanza.",
+      note: "piccole cose dal mare",
     },
   ],
   starMessages: ["CACCAPUPU", "CIU'", "Furby"],
@@ -79,5 +79,9 @@ A 365 km/h ci lanciamo verso un terzo giro che forse somiglierà al secondo, ma 
 Per ora è un testa a testa, ma io non mollo: farò il possibile per restarti vicino in questa lunga gara, che è appena iniziata ma sembra durare da anni. 😂😘
 
 Vieni a prendermi, baby: questo nuovo giro sarà il nostro best lap. 🛵`,
-  music: "/music/our-song.mp3",
+  music: {
+    title: "Questa Domenica",
+    artist: "Olly",
+    url: "https://www.youtube.com/watch?v=Qa4rIEg8Bhk",
+  },
 };

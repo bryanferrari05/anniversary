@@ -1185,7 +1185,8 @@ footer svg {
   align-items: flex-end;
   gap: 8px;
 }
-.music-player button {
+.music-player button,
+.music-player a {
   border: 1px solid #be9a8f40;
   background: #fffaf0ec;
   backdrop-filter: blur(10px);
@@ -1198,6 +1199,10 @@ footer svg {
   align-items: center;
   gap: 10px;
   font-size: 0.68rem;
+}
+
+.music-player a {
+  text-decoration: none;
 }
 .music-symbol {
   font-size: 1.2rem;
@@ -1568,12 +1573,12 @@ footer svg {
     right: 12px;
     bottom: 12px;
   }
-  .music-player button {
+  .music-player :is(button, a) {
     min-height: 44px;
     padding: 10px 13px;
     font-size: 0.6rem;
   }
-  .music-player button > span:last-child {
+  .music-player :is(button, a) > span:last-child {
     max-width: 100px;
   }
   .final-section footer {
@@ -1671,13 +1676,13 @@ footer svg {
   filter: drop-shadow(0 0 18px #f1c797aa);
 }
 @media (max-width: 600px) {
-  .music-player button {
+  .music-player :is(button, a) {
     width: 44px;
     height: 44px;
     padding: 12px;
     justify-content: center;
   }
-  .music-player button > span:last-child {
+  .music-player :is(button, a) > span:last-child {
     display: none;
   }
   .music-symbol {
