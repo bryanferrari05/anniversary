@@ -8,11 +8,23 @@ export function useRelationship() {
   useEffect(() => {
     const update = () =>
       setTime(relationshipDuration(loveData.relationshipStart));
-    const timer = window.setInterval(update, 1000);
-    document.addEventListener("visibilitychange", update);
+    let timer: number;
+    const tick = () => {
+      update();
+      // Align ticks to the next wall-clock second, including midnight.
+      timer = window.setTimeout(tick, 1000 - (Date.now() % 1000));
+    };
+    const resume = () => {
+      window.clearTimeout(timer);
+      tick();
+    };
+    tick();
+    document.addEventListener("visibilitychange", resume);
+    window.addEventListener("pageshow", resume);
     return () => {
-      clearInterval(timer);
-      document.removeEventListener("visibilitychange", update);
+      window.clearTimeout(timer);
+      document.removeEventListener("visibilitychange", resume);
+      window.removeEventListener("pageshow", resume);
     };
   }, []);
   return time;

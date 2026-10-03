@@ -7,8 +7,6 @@ const positions = [
   [16, 32],
   [77, 23],
   [48, 12],
-  [85, 65],
-  [14, 72],
 ];
 export function NightScene() {
   const [selected, setSelected] = useState<number | null>(null);
@@ -38,12 +36,12 @@ export function NightScene() {
       <Reveal>
         <p className="eyebrow">04 / SOTTO LO STESSO CIELO</p>
         <h2 id="night-title">
-          Tra tutte le stelle,
+          Tre stelle.
           <br />
-          <em>io sceglierei te.</em>
+          <em>Solo noi sappiamo.</em>
         </h2>
         <p className="section-subtitle">
-          Alcune stelle hanno qualcosa da dirti.
+          Tre parole del nostro vocabolario.
           <br />
           Toccane una.
         </p>
@@ -112,8 +110,8 @@ export function NightScene() {
       </div>
       <p className="handwritten night-note">
         {constellation
-          ? "Vedi? Anche il cielo parla di noi."
-          : "qui, accanto a te."}
+          ? "Il vocabolario è completo."
+          : "Le spiegazioni non sono incluse."}
       </p>
       <div className="night-ground" aria-hidden="true" />
     </section>

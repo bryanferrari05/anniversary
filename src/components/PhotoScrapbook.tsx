@@ -13,6 +13,11 @@ function PhotoImage({
   eager?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
+  const [source, setSource] = useState(eager ? photo.src : photo.preview);
+  useEffect(() => {
+    setFailed(false);
+    setSource(eager ? photo.src : photo.preview);
+  }, [photo.src, photo.preview, eager]);
   if (failed)
     return (
       <div className="photo-placeholder">
@@ -23,13 +28,16 @@ function PhotoImage({
     );
   return (
     <img
-      src={photo.src}
+      src={source}
       alt={photo.caption}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
       width="720"
       height="900"
-      onError={() => setFailed(true)}
+      onError={() => {
+        if (source !== photo.src) setSource(photo.src);
+        else setFailed(true);
+      }}
     />
   );
 }
@@ -98,14 +106,14 @@ export function PhotoScrapbook() {
       <Reveal>
         <p className="eyebrow">03 / PEZZETTI DI NOI</p>
         <h2 id="photos-title">
-          Sei il mio
+          Le prove
           <br />
-          <em>ricordo preferito.</em>
+          <em>fotografiche.</em>
         </h2>
         <p className="section-subtitle">
-          Piccoli istanti. Un mondo intero.
+          Sì, siamo proprio noi.
           <br />
-          Tocca una foto e fermati un po’.
+          Tocca una foto per vederla intera.
         </p>
       </Reveal>
       <div className="scrapbook">
@@ -124,7 +132,9 @@ export function PhotoScrapbook() {
               <div
                 className="photo-image"
                 style={
-                  { "--photo-bg": `url(${photo.src})` } as React.CSSProperties
+                  {
+                    "--photo-bg": `url("${photo.preview}")`,
+                  } as React.CSSProperties
                 }
               >
                 <PhotoImage photo={photo} />
@@ -138,7 +148,7 @@ export function PhotoScrapbook() {
       </div>
       <Reveal>
         <p className="handwritten scrapbook-footer">
-          e tutte le foto che dobbiamo ancora scattare…
+          la prossima volta proviamo a farne una seria.
         </p>
       </Reveal>
       <AnimatePresence>

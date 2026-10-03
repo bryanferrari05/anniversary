@@ -37,18 +37,18 @@ export function StatsSection() {
       <Reveal>
         <p className="eyebrow">02 / IL TEMPO, INSIEME</p>
         <h2 id="stats-title">
-          Tutto questo tempo.
+          Facciamo
           <br />
-          <em>Sempre tu.</em>
+          <em>due conti.</em>
         </h2>
       </Reveal>
       <div className="stats-scene">
         <div className="stats-orbit" />
         <AnimalCouple pose="rose" />
         <span className="handwritten stats-note">
-          tu, io e tutte le nostre
+          sì, ci siamo sopportati
           <br />
-          piccole cose.
+          per tutto questo tempo.
         </span>
       </div>
       <div className="stats-grid">
@@ -66,7 +66,7 @@ export function StatsSection() {
       </div>
       <Reveal>
         <p className="stats-ending">
-          E ti sceglierei <em>ancora.</em>
+          E ancora <em>ci parliamo.</em>
         </p>
         <span className="tiny-heart">♡</span>
       </Reveal>

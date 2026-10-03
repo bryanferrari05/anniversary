@@ -12,6 +12,21 @@ function addDays(date: Date, days: number) {
   next.setDate(next.getDate() + days);
   return next;
 }
+
+/** Keep only the year for the whole anniversary day, using browser local time. */
+export function relationshipCounterDisplay(
+  time: ReturnType<typeof relationshipDuration>,
+) {
+  const isAnniversaryDay =
+    time.years > 0 && time.months === 0 && time.days === 0;
+  const units = [
+    { value: time.years, label: time.years === 1 ? "anno" : "anni" },
+    { value: time.months, label: time.months === 1 ? "mese" : "mesi" },
+    { value: time.days, label: time.days === 1 ? "giorno" : "giorni" },
+  ].filter((unit) => unit.value > 0);
+  if (!units.length) units.push({ value: 0, label: "giorni" });
+  return { isAnniversaryDay, units };
+}
 function calendarDays(start: Date, end: Date) {
   const utcDay = (d: Date) =>
     Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000;

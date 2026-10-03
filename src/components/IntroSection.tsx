@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 import { loveData } from "../data/loveData";
 import { useRelationship } from "../hooks/useRelationship";
+import { relationshipCounterDisplay } from "../lib/calendar";
 import { AnimalCouple, Heart, PetalParticles, Rose } from "./Illustrations";
 export function IntroSection() {
   const section = useRef<HTMLElement>(null);
@@ -18,6 +19,7 @@ export function IntroSection() {
   });
   const drift = useTransform(scrollYProgress, [0, 1], [0, 65]);
   const time = useRelationship();
+  const { isAnniversaryDay, units } = relationshipCounterDisplay(time);
   const date = new Date(loveData.relationshipStart).toLocaleDateString(
     "it-IT",
     { day: "numeric", month: "long", year: "numeric" },
@@ -32,7 +34,7 @@ export function IntroSection() {
       <PetalParticles />
       <div className="intro-top">
         <span>{loveData.dedication}</span>
-        <span>UNA PICCOLA STORIA D’AMORE</span>
+        <span>UNA RACCOLTA DI COSE NOSTRE</span>
         <Heart />
       </div>
       <motion.div
@@ -54,27 +56,27 @@ export function IntroSection() {
           Siamo <em>noi</em> da
         </h1>
         <div
-          className="calendar-counter"
-          aria-label={`${time.years} anni, ${time.months} mesi, ${time.days} giorni`}
+          className={`calendar-counter${isAnniversaryDay ? " anniversary-counter" : ""}`}
+          aria-label={units
+            .map(({ value, label }) => `${value} ${label}`)
+            .join(", ")}
         >
-          {[
-            [time.years, time.years === 1 ? "anno" : "anni"],
-            [time.months, time.months === 1 ? "mese" : "mesi"],
-            [time.days, time.days === 1 ? "giorno" : "giorni"],
-          ].map(([value, label]) => (
+          {units.map(({ value, label }) => (
             <div key={label}>
-              <span>{String(value).padStart(2, "0")}</span>
+              <span>{value}</span>
               <small>{label}</small>
             </div>
           ))}
         </div>
-        <p className="clock-counter">
-          <span>{String(time.hours).padStart(2, "0")} ore</span>
-          <b>·</b>
-          <span>{String(time.minutes).padStart(2, "0")} minuti</span>
-          <b>·</b>
-          <span>{String(time.seconds).padStart(2, "0")} secondi</span>
-        </p>
+        {!isAnniversaryDay && (
+          <p className="clock-counter">
+            <span>{String(time.hours).padStart(2, "0")} ore</span>
+            <b>·</b>
+            <span>{String(time.minutes).padStart(2, "0")} minuti</span>
+            <b>·</b>
+            <span>{String(time.seconds).padStart(2, "0")} secondi</span>
+          </p>
+        )}
         <AnimalCouple />
         <p className="intro-message">
           {loveData.introMessage} <Heart />
@@ -88,7 +90,7 @@ export function IntroSection() {
           Apri <Heart />
         </motion.a>
         <span className="handwritten intro-note">
-          solo per te, con tutto il cuore
+          comprese le nostre scemenze
         </span>
       </motion.div>
       <a
@@ -96,7 +98,7 @@ export function IntroSection() {
         className="scroll-cue"
         aria-label="Scopri la nostra storia"
       >
-        <span>SCORRI PIANO, SIAMO SOLO NOI</span>
+        <span>SCORRI, C’È DELL’ALTRO</span>
         <i />
       </a>
     </section>

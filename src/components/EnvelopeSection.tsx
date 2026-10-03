@@ -46,14 +46,14 @@ export function EnvelopeSection() {
       <Reveal>
         <p className="eyebrow">01 / UNA LETTERA PER TE</p>
         <h2 id="letter-title">
-          Le cose belle
+          Prima di tutto,
           <br />
-          cominciano <em>piano.</em>
+          <em>due righe.</em>
         </h2>
         <p className="section-subtitle">
-          Appoggia qui la tua mano.
+          Tieni premuto il cuore sulla busta.
           <br />
-          Ci sono parole che aspettano solo te.
+          Prometto di essere breve.
         </p>
       </Reveal>
       <div className="envelope-stage">
@@ -70,7 +70,7 @@ export function EnvelopeSection() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <span className="letter-small">PER TE, SEMPRE</span>
+              <span className="letter-small">POSTA PER CICCIA</span>
               <p>{loveData.envelopeLetter}</p>
               <Heart />
             </motion.article>
@@ -151,20 +151,20 @@ export function EnvelopeSection() {
               </span>
             </button>
           )}
-          <span className="envelope-inscription">con amore</span>
+          <span className="envelope-inscription">da aprire qui</span>
         </motion.div>
         {opened && <PetalParticles burst />}
       </div>
       <p className="hold-hint" aria-live="polite">
         {opened
-          ? "Alcune parole meritano di restare."
+          ? "Ecco fatto. Ora puoi continuare."
           : progress > 0
             ? "Ancora un piccolo momento…"
             : "TIENI PREMUTO IL CUORE PER APRIRE"}
       </p>
       {opened && (
         <a className="text-link" href="#noi">
-          La nostra storia continua <span aria-hidden="true">↓</span>
+          Avanti con il resto <span aria-hidden="true">↓</span>
         </a>
       )}
     </section>

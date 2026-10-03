@@ -14,21 +14,21 @@ export function FinalScene() {
       aria-labelledby="final-title"
     >
       <Reveal>
-        <p className="eyebrow">06 / TUTTO QUELLO CHE VERRÀ</p>
-        <p className="final-line">Sono passati tutti questi giorni…</p>
+        <p className="eyebrow">06 / E ADESSO?</p>
+        <p className="final-line">Di cose ne abbiamo fatte.</p>
       </Reveal>
       <Reveal>
         <p className="final-line second-line">
-          e ci sono ancora così tante cose
+          Direi che possiamo
           <br />
-          che voglio vivere con te.
+          continuare così.
         </p>
       </Reveal>
       <Reveal>
         <h2 id="final-title">
-          Siamo solo
+          Alla prossima
           <br />
-          <em>all’inizio.</em>
+          <em>avventura.</em>
         </h2>
       </Reveal>
       <motion.div
@@ -43,7 +43,7 @@ export function FinalScene() {
       </motion.div>
       <Reveal delay={0.25}>
         <p className="anniversary-wish">
-          Buon anniversario amore <Heart />
+          Buon anniversario, Ciccia. <Heart />
         </p>
         <button
           className="primary-button last-button"
@@ -51,7 +51,7 @@ export function FinalScene() {
         >
           Un’ultima cosa…
         </button>
-        <p className="handwritten final-signature">con te, ogni giorno.</p>
+        <p className="handwritten final-signature">E adesso, dove si mangia?</p>
       </Reveal>
       <footer>
         <span>{loveData.dedication}</span>
@@ -72,13 +72,13 @@ export function FinalScene() {
               animate={{ y: 0, opacity: 1 }}
               className="final-letter"
             >
-              <p className="eyebrow">L’ULTIMA COSA. LA PIÙ IMPORTANTE.</p>
+              <p className="eyebrow">POI HO FINITO, PROMESSO.</p>
               <h2>
-                Per te, <em>amore.</em>
+                Ehi, <em>Ciccia.</em>
               </h2>
               <p className="letter-body">{loveData.finalLetter}</p>
               <Heart />
-              <p className="handwritten">Sempre dalla tua parte.</p>
+              <p className="handwritten">Fine. Per adesso.</p>
             </motion.article>
           </Modal>
         )}

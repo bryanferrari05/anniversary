@@ -1,6 +1,9 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { relationshipDuration } from "../src/lib/calendar.ts";
+import {
+  relationshipDuration,
+  relationshipCounterDisplay,
+} from "../src/lib/calendar.ts";
 test("anniversary, before anniversary, and live clock", () => {
   const d = relationshipDuration(
     "2024-10-04T00:00:00",
@@ -53,4 +56,52 @@ test("calendar days remain correct through daylight saving changes", () => {
   );
   assert.equal(autumn.days, 2);
   assert.equal(autumn.totalHours, 49);
+});
+
+test("anniversary display switches at midnight and stays years-only for October 4", () => {
+  const start = "2024-10-04T00:00:00";
+  const before = relationshipCounterDisplay(
+    relationshipDuration(start, new Date("2026-10-03T23:59:59")),
+  );
+  assert.equal(before.isAnniversaryDay, false);
+  for (const stamp of [
+    "2026-10-04T00:00:00",
+    "2026-10-04T12:30:42",
+    "2026-10-04T23:59:59",
+  ]) {
+    const display = relationshipCounterDisplay(
+      relationshipDuration(start, new Date(stamp)),
+    );
+    assert.equal(display.isAnniversaryDay, true, stamp);
+    assert.deepEqual(display.units, [{ value: 2, label: "anni" }], stamp);
+  }
+  const nextDay = relationshipDuration(start, new Date("2026-10-05T08:12:34"));
+  const display = relationshipCounterDisplay(nextDay);
+  assert.equal(display.isAnniversaryDay, false);
+  assert.deepEqual(display.units, [
+    { value: 2, label: "anni" },
+    { value: 1, label: "giorno" },
+  ]);
+  assert.deepEqual(
+    [nextDay.hours, nextDay.minutes, nextDay.seconds],
+    [8, 12, 34],
+  );
+});
+
+test("the anniversary is calculated each year rather than hardcoded to two", () => {
+  const third = relationshipCounterDisplay(
+    relationshipDuration(
+      "2024-10-04T00:00:00",
+      new Date("2027-10-04T19:00:00"),
+    ),
+  );
+  assert.equal(third.isAnniversaryDay, true);
+  assert.deepEqual(third.units, [{ value: 3, label: "anni" }]);
+  const month = relationshipCounterDisplay(
+    relationshipDuration(
+      "2024-10-04T00:00:00",
+      new Date("2026-11-04T12:00:00"),
+    ),
+  );
+  assert.equal(month.isAnniversaryDay, false);
 });

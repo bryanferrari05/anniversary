@@ -26,10 +26,10 @@ export function HeartMessageGenerator() {
       aria-labelledby="message-title"
     >
       <Reveal>
-        <p className="eyebrow">05 / UN PROMEMORIA D’AMORE</p>
+        <p className="eyebrow">05 / COSE CHE CAPIAMO NOI</p>
         <h2 id="message-title">
-          Quando hai bisogno di ricordarti
-          <br /> <em>quanto ti amo…</em>
+          Basta una parola.
+          <br /> <em>E abbiamo già capito.</em>
         </h2>
       </Reveal>
       <div className="heart-stage">
@@ -37,7 +37,7 @@ export function HeartMessageGenerator() {
         <span className="heart-orbit second" />
         <motion.button
           className="message-heart"
-          aria-label="Premimi: scopri un messaggio d’amore"
+          aria-label="Premimi: pesca una delle nostre frasi"
           whileTap={{ scale: 0.88 }}
           onClick={choose}
           key={presses}
@@ -83,15 +83,11 @@ export function HeartMessageGenerator() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.4 }}
           >
-            {index < 0
-              ? "Certe cose non mi stancherò mai di dirtele."
-              : loveData.loveMessages[index]}
+            {index < 0 ? "Vediamo cosa esce." : loveData.loveMessages[index]}
           </motion.p>
         </AnimatePresence>
       </div>
-      <p className="message-footnote">
-        Un piccolo pensiero. Ogni volta che vuoi.
-      </p>
+      <p className="message-footnote">Premi ancora. Ce ne sono altre.</p>
     </section>
   );
 }

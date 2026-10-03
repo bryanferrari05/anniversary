@@ -23,22 +23,24 @@ npm run preview
 
 Every personal text and asset path is in **`src/data/loveData.ts`**.
 
-| Content                              | Edit or add                                                     |
-| ------------------------------------ | --------------------------------------------------------------- |
-| Relationship date                    | `relationshipStart` (currently `2024-10-04T00:00:00`)           |
-| Opening message                      | `introMessage`                                                  |
-| Envelope letter                      | `envelopeLetter` (multiline text between backticks)             |
-| Six photographs                      | Add `photo-1.jpg` through `photo-6.jpg` to `public/photos/`     |
-| Photo captions and handwritten notes | `photos`, keeping exactly six entries                           |
-| Star messages                        | `starMessages` (five positioned stars)                          |
-| Heart messages                       | `loveMessages` (32 examples included)                           |
-| Final letter                         | `finalLetter` (multiline text between backticks)                |
-| Your song                            | Add `our-song.mp3` to `public/music/`; change `music` if needed |
-| Small dedication                     | `dedication`                                                    |
+| Content                              | Edit or add                                                                                                                       |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| Relationship date                    | `relationshipStart` (currently `2024-10-04T00:00:00`)                                                                             |
+| Opening message                      | `introMessage`                                                                                                                    |
+| Envelope letter                      | `envelopeLetter` (multiline text between backticks)                                                                               |
+| Six photographs                      | `photos[].src` points to the original files in `public/photos/`; `preview` points to a small version in `public/photos/previews/` |
+| Photo captions and handwritten notes | `photos`, keeping exactly six entries                                                                                             |
+| Star messages                        | `starMessages` (three positioned stars: CACCAPUPU, CIU', Furby)                                                                   |
+| Heart messages                       | `loveMessages` (the twelve supplied inside jokes)                                                                                 |
+| Final letter                         | `finalLetter` (multiline text between backticks)                                                                                  |
+| Your song                            | Add `our-song.mp3` to `public/music/`; change `music` if needed                                                                   |
+| Small dedication                     | `dedication`                                                                                                                      |
 
-The original images in the parent folder are untouched. Per the brief, the project initially uses six attractive illustrated placeholders. Replace them with your chosen six photographs. JPEGs around 1200–1600px on the long edge and under 300KB each are ideal. The scrapbook crops to portrait format; the fullscreen viewer shows each complete image. Missing images automatically fall back to the illustrations. Music loads only after a tap, never autoplays, and a missing file leaves the rest of the experience working normally.
+The scrapbook uses the original filenames you placed in `public/photos/`, with lightweight WebP previews for scrolling. Both the scrapbook and fullscreen viewer keep each photo uncropped. If a preview is missing, the original photo loads instead; illustrations appear only when both fail. Six slots currently show five unique photographs because `image.jpg` and `image(5).jpg` are identical. When replacing a photo, update its `src` and `preview` paths together. Music loads only after a tap, never autoplays, and a missing file leaves the rest of the experience working normally.
 
 Do not include a timezone suffix in the relationship date if you want the requested browser-local midnight. Calendar years and months are calculated from whole calendar anniversaries, clamped at month ends. Calendar days follow local dates; total hours count actual elapsed time, including daylight-saving changes. The live clock refreshes every second and when the tab becomes visible.
+
+On October 4 the opening counter shows only the number of completed years, with no months, days or ticking clock: **“2 anni” for all of October 4, 2026**. At local midnight on October 5 it resumes with **“2 anni · 1 giorno”** and live hours, minutes and seconds. Zero-valued month/day units are omitted. The rule repeats each anniversary with the dynamically calculated year. Timers align to wall-clock seconds and refresh after returning to the tab. Unit and browser checks cover both midnight transitions, midday October 4, October 5 and the following anniversary.
 
 ## Interactions
 

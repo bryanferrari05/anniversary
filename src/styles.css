@@ -1634,6 +1634,25 @@ footer svg {
   inset: 0;
   pointer-events: none;
 }
+.anniversary-counter {
+  margin-bottom: 35px;
+}
+.calendar-counter.anniversary-counter > div {
+  width: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.anniversary-counter span {
+  font-size: clamp(5rem, 9vw, 7rem);
+}
+.anniversary-counter small {
+  font-family: var(--serif);
+  font-size: clamp(2.7rem, 5vw, 4rem);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--burgundy);
+}
 .hold-heart-fill {
   position: absolute;
   width: 28px;
