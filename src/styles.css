@@ -746,15 +746,29 @@ em {
   opacity: 0.9;
 }
 .photo-image {
+  position: relative;
   width: 100%;
   aspect-ratio: 4/5;
   overflow: hidden;
   background: #e3d6c6;
 }
+.photo-image::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  background-image: var(--photo-bg);
+  background-position: center;
+  background-size: cover;
+  filter: blur(12px);
+  opacity: 0.46;
+  transform: scale(1.08);
+}
 .photo-image img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .photo-placeholder {
   height: 100%;

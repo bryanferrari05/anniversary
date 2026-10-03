@@ -121,7 +121,12 @@ export function PhotoScrapbook() {
               aria-label={`Apri foto ${i + 1}: ${photo.caption}`}
             >
               <span className="tape" />
-              <div className="photo-image">
+              <div
+                className="photo-image"
+                style={
+                  { "--photo-bg": `url(${photo.src})` } as React.CSSProperties
+                }
+              >
                 <PhotoImage photo={photo} />
               </div>
               <span className="photo-caption">{photo.caption}</span>
