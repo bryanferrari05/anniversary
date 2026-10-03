@@ -21,7 +21,7 @@ Adesso apri tutto. Sì, anche le stelle.`,
       note: "noi, senza filtri",
     },
     {
-      src: "/photos/image.jpg",
+      src: "/photos/image(5).jpg",
       preview: "/photos/previews/photo-2.webp",
       caption: "Il minigolf preso molto sul serio.",
       note: "concentrazione massima",
@@ -46,7 +46,7 @@ Adesso apri tutto. Sì, anche le stelle.`,
     },
     {
       src: "/photos/image(5).jpg",
-      preview: "/photos/previews/photo-6.webp",
+      preview: "/photos/previews/photo-2.webp",
       caption: "Sì, ancora il minigolf.",
       note: "il bis",
     },
@@ -66,16 +66,18 @@ Adesso apri tutto. Sì, anche le stelle.`,
     "capoeira bimbii",
     "Bananita",
   ],
-  finalLetter: `Ciccia,
+  finalLetter: `Due anni iniziano a essere tantini, sai?
 
-fine del sito. Spero di averti fatto ridere almeno un po’.
+Abbiamo VISSUTO due anni a bomba! Quest’anno è stato pieno di cambiamenti turbolenti, che ci hanno portato momenti brutti e momenti belli.
 
-Mi piace stare con te: partire, mangiare qualcosa, raccontarci la giornata e tirare fuori una delle nostre frasi senza dover spiegare niente.
+Nel primo giro di pista — il nostro primo anno — ci siamo scoperti e tutto era nuovo.
 
-Per il resto, abbiamo ancora vacanze da organizzare e foto improbabili da fare. E probabilmente qualcosa da mangiare.
+Oggi, invece, arriviamo all’ultimo metro del secondo giro. Dopo qualche uscita di pista, sorpasso, errore, lungo e perdita di aderenza, direi che possiamo essere fieri di essere arrivati fin qui.
 
-Buon anniversario. Ti amo.
+A 365 km/h ci lanciamo verso un terzo giro che forse somiglierà al secondo, ma forti dell’esperienza accumulata, che ci aiuterà a non ripetere gli stessi errori.
 
-Ora però decidiamo dove andare a cena.`,
+Per ora è un testa a testa, ma io non mollo: farò il possibile per restarti vicino in questa lunga gara, che è appena iniziata ma sembra durare da anni. 😂😘
+
+Vieni a prendermi, baby: questo nuovo giro sarà il nostro best lap. 🛵`,
   music: "/music/our-song.mp3",
 };
